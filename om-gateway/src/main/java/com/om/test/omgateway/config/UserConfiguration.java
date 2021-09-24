@@ -20,7 +20,7 @@ public class UserConfiguration {
     public RouteLocator userProxyRouting(RouteLocatorBuilder builder, UserDestinations userDestinations) {
         return builder.routes()
                 .route(p -> p
-                        .path("/users/{id}")
+                        .path("/public/mobile/users/{id}")
                         .and().method("GET")
                         .uri("http://localhost:8081"))
                 .build();
@@ -28,7 +28,7 @@ public class UserConfiguration {
 
     @Bean
     public RouterFunction<ServerResponse> userHandlerRouting(UserHandlers handlers) {
-        return RouterFunctions.route(GET("/users/{id}"), handlers::getUserById);
+        return RouterFunctions.route(GET("/public/mobile/users/{id}"), handlers::getUserById);
     }
 
     @Bean
