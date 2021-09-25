@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-25T03:34:47.854Z" agent="5.0 (X11)" etag="q2ZfbIf0ExfvMAjtR5vp" version="15.3.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-25T04:09:21.348Z" agent="5.0 (X11)" etag="nKp30CKPIZ3UKgvHRAKT" version="15.3.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="2249" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -22,13 +22,16 @@
         <mxCell id="hDtv_4s29C5r-HscwcdU-7" value="Remote proxies&amp;lt;&amp;lt;package&amp;gt;&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="130" y="450" width="410" height="110" as="geometry" />
         </mxCell>
+        <mxCell id="hDtv_4s29C5r-HscwcdU-34" value="REST API" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hDtv_4s29C5r-HscwcdU-8" target="hDtv_4s29C5r-HscwcdU-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="hDtv_4s29C5r-HscwcdU-8" value="&lt;div&gt;&amp;lt;&amp;lt;proxy&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Other Proxies&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="140" y="490" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hDtv_4s29C5r-HscwcdU-11" value="REST API" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hDtv_4s29C5r-HscwcdU-9" target="hDtv_4s29C5r-HscwcdU-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="hDtv_4s29C5r-HscwcdU-9" value="&lt;div&gt;&amp;lt;&amp;lt;proxy&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;User Proxy&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Courier New&quot;&gt;- getUserById()&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="hDtv_4s29C5r-HscwcdU-9" value="&lt;div&gt;&amp;lt;&amp;lt;proxy&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;User Proxy&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Courier New&quot;&gt;- getUserById()&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="275" y="490" width="255" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hDtv_4s29C5r-HscwcdU-12" value="User Configuration" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -75,6 +78,12 @@
             <mxPoint x="540" y="550" as="sourcePoint" />
             <mxPoint x="590" y="500" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="hDtv_4s29C5r-HscwcdU-32" value="&lt;div&gt;&amp;lt;&amp;lt;SpringBootApplication&amp;gt;&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Other Services&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="115" y="630" width="170" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="hDtv_4s29C5r-HscwcdU-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hDtv_4s29C5r-HscwcdU-4" target="hDtv_4s29C5r-HscwcdU-8">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
