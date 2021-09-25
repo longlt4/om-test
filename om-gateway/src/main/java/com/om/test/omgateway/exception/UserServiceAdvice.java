@@ -1,4 +1,4 @@
-package com.om.test.userservice.exception;
+package com.om.test.omgateway.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class UserNotFoundAdvice {
+public class UserServiceAdvice {
 
     @ResponseBody
-    @ExceptionHandler(UserNotFoundException.class)
+    @ExceptionHandler(UserServiceException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String userNotFoundHandler(UserNotFoundException exception) {
-        return exception.getMessage();
+    UserServiceExceptionResponse userNotFoundHandler(UserServiceException exception) {
+        UserServiceExceptionResponse response = new UserServiceExceptionResponse(HttpStatus.NOT_FOUND, exception.getMessage());
+        return response;
     }
 }

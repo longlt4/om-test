@@ -1,12 +1,11 @@
 package com.om.test.omgateway.config;
 
-import com.om.test.omgateway.service.UserService;
+import com.om.test.omgateway.handlers.UserHandlers;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -22,17 +21,12 @@ public class UserConfiguration {
                 .route(p -> p
                         .path("/public/mobile/users/{id}")
                         .and().method("GET")
-                        .uri("http://localhost:8081"))
+                        .uri(userDestinations.getUserServiceUrl()))
                 .build();
     }
 
     @Bean
     public RouterFunction<ServerResponse> userHandlerRouting(UserHandlers handlers) {
         return RouterFunctions.route(GET("/public/mobile/users/{id}"), handlers::getUserById);
-    }
-
-    @Bean
-    public WebClient webClient() {
-        return WebClient.create();
     }
 }

@@ -1,24 +1,14 @@
 package com.om.test.omgateway.model;
 
 public class MobileUserInfo {
-    private Long id;
     private String username;
     private String email;
 
     public MobileUserInfo() { }
 
-    public MobileUserInfo(Long id, String username, String email) {
-        this.id = id;
+    public MobileUserInfo(String username, String email) {
         this.username = username;
         this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {

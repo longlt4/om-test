@@ -1,10 +1,12 @@
 package com.om.test.omgateway.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 import javax.validation.constraints.NotNull;
 
-@ConfigurationProperties(prefix = "users.destinations")
+@Configuration
+@ConfigurationProperties(prefix = "user.destinations")
 public class UserDestinations {
     @NotNull
     public String userServiceUrl;
