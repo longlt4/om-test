@@ -16,7 +16,7 @@ public class UserProxy {
 
     public UserProxy(UserDestinations userDestinations, WebClient.Builder webClientBuilder) {
         this.userDestinations = userDestinations;
-        this.client = webClientBuilder.baseUrl(userDestinations.getUserServiceUrl()).build();;
+        this.client = webClientBuilder.baseUrl(userDestinations.getUserServiceUrl()).build();
     }
 
     public Mono<MobileUserInfo> findUserById(String id) {

@@ -18,15 +18,4 @@ public class OmGatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OmGatewayApplication.class, args);
 	}
-
-//	@Bean
-//	public RouteLocator mobileRoutes(RouteLocatorBuilder builder) {
-//		return builder.routes()
-//				.route(p -> p
-//						.path("/users")
-//						.filters(f -> f.addRequestHeader("hello", "would"))
-//						.uri("http://localhost:8081/users"))
-//						// .uri("google.com"))
-//				.build();
-//	}
 }
