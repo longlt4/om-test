@@ -44,7 +44,14 @@ $ ./mvnw clean spring-boot:run
 
 - Delete:
 	+ $ curl -X DELETE localhost:8081/users/1
-	
+
+
+### om-gateway
+$ ./mvnw clean spring-boot:run
+
+- get user by id:
+	+ $ curl -v localhost:8089/public/api/mobile/v1/users/1
+
 
 ## How to test
 I have add three test cases for integration testing of om-gateway
@@ -59,16 +66,12 @@ I have add three test cases for integration testing of om-gateway
 - shouldGetUserByIdBadRequest():
   + status: 400
   + return 400 and {userId}
-  
-- How to run
-  + ./mvnw test
+ 
 
+- How to run test om-gateway:
+	+ firstly, run user-service: $ ./mvnw clean spring-boot:run
+  + second, run test om-gateway: $ ./mvnw test
 
-### om-gateway
-$ ./mvnw clean spring-boot:run
-
-- get user by id:
-	+ $ curl -v localhost:8089/public/api/mobile/v1/users/1
 
 ## Deployment
 This is a deployment diagram for om-gateway and user-service on live server.
