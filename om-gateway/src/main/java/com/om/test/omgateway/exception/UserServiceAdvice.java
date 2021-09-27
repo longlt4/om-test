@@ -13,7 +13,7 @@ public class UserServiceAdvice {
     @ExceptionHandler(UserServiceException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     UserServiceExceptionResponse userNotFoundHandler(UserServiceException exception) {
-        UserServiceExceptionResponse response = new UserServiceExceptionResponse(HttpStatus.NOT_FOUND, exception.getMessage());
+        UserServiceExceptionResponse response = new UserServiceExceptionResponse("404", exception.getMessage());
         return response;
     }
 }

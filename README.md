@@ -44,6 +44,24 @@ $ ./mvnw clean spring-boot:run
 
 - Delete:
 	+ $ curl -X DELETE localhost:8081/users/1
+	
+
+## How to test
+I have add three test cases for integration testing of om-gateway
+- shouldGetUserById():
+  + status: 200
+  + return username1 and username1@email.com
+
+- shouldGetUserByIdNotFound():
+  + status: 404
+  + return 404 and {userId}
+  
+- shouldGetUserByIdBadRequest():
+  + status: 400
+  + return 400 and {userId}
+  
+- How to run
+  + ./mvnw test
 
 
 ### om-gateway

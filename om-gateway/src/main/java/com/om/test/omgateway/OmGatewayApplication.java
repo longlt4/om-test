@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration
-@ConfigurationPropertiesScan("com.om.tes.omgateway.config")
+@ConfigurationPropertiesScan("com.om.test.omgateway.config")
 @ComponentScan
 public class OmGatewayApplication {
 

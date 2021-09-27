@@ -27,14 +27,10 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public CollectionModel<ResponseEntity<?>> all() {
-        List<ResponseEntity<?>> users = repository.findAll()
+    public CollectionModel<EntityModel<User>> all() {
+        List<EntityModel<User>> users = repository.findAll()
                 .stream()
-                .map(user -> {
-                    EntityModel<User> entityModel = assembler.toModel(user);
-                    return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                            .body(entityModel);
-                })
+                .map(assembler::toModel)
                 .collect(Collectors.toList());
 
         return CollectionModel.of(users, linkTo(methodOn(UserController.class).all()).withSelfRel());
@@ -48,14 +44,10 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<?> one(@PathVariable Long id) {
+    public EntityModel<?> one(@PathVariable Long id) {
         User user= repository.findById(id)
-                .orElseThrow(()-> new UserServiceException("Could not found user " + id));
-
-        EntityModel<User> entityModel = assembler.toModel(user);
-
-        return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel);
+                .orElseThrow(()-> new UserServiceException("Could not found user id: " + id));
+        return assembler.toModel(user);
     }
 
     @PutMapping("/users/{id}")
@@ -67,7 +59,7 @@ public class UserController {
                    return repository.save(u);
                 })
                 .orElseGet(() -> {
-                    // set id
+                    user.setId(id);
                     return repository.save(user);
                 });
 

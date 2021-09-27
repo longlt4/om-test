@@ -14,5 +14,4 @@ public class UserServiceApplicationTests {
 	void contextLoads() {
 
 	}
-
 }

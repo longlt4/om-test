@@ -1,5 +1,7 @@
 package com.om.test.omgateway.handlers;
 
+import com.om.test.omgateway.exception.UserServiceException;
+import com.om.test.omgateway.exception.UserServiceExceptionResponse;
 import com.om.test.omgateway.model.MobileUserInfo;
 import com.om.test.omgateway.proxies.UserProxy;
 import org.springframework.http.MediaType;
@@ -20,12 +22,19 @@ public class UserHandlers {
 
     public Mono<ServerResponse> getUserById(ServerRequest serverRequest) {
         String id = serverRequest.pathVariable("id");
-        Mono<MobileUserInfo> optionalMono = userService.findUserById(id);
+        Mono<MobileUserInfo> mobileUserInfoMono = userService.findUserById(id);
 
-        return optionalMono.flatMap(user -> {
-            return ServerResponse.ok()
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(fromObject(user));
-        });
+        return mobileUserInfoMono
+                .flatMap(mm -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(fromObject(mm)))
+                .onErrorResume(UserServiceException.class, e -> Mono.just(new UserServiceExceptionResponse("404", e.getMessage()))
+                        .flatMap(exceptionResponse -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(fromObject(exceptionResponse))))
+                .onErrorResume(RuntimeException.class, e -> Mono.just(new UserServiceExceptionResponse("400", e.getMessage()))
+                        .flatMap(exceptionResponse -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .body(fromObject(exceptionResponse))));
     }
 }

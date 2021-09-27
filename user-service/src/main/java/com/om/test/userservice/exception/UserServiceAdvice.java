@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class UserServiceAdvice {
-
     @ResponseBody
     @ExceptionHandler(UserServiceException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
